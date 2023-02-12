@@ -1,2 +1,6 @@
-# MPSoC-DNC
-Differentiable Neural Computer for a Multi-Processor System on Chip verified with UVM/OSVVM/FV
+# MPSoC-NTM (T-DNC/NTM-MPSoC)
+## QueenField
+
+![QueenField](../master/icon.jpg)
+
+**Neural Turing Machine for a Multi-Processor System on Chip verified with UVM/OSVVM/FV**
