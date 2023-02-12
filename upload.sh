@@ -1,3 +1,3 @@
 git add *
 git commit -m "Working in MPSoC-DNC 🦀"
-git push origin master
+git push origin main
