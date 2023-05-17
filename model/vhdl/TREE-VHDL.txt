@@ -1,4 +1,11 @@
 code
+├── architecture
+│   ├── mpsoc
+│   │   └── ntm_mpsoc.vhd
+│   ├── pu
+│   │   └── ntm_pu.vhd
+│   └── soc
+│       └── ntm_soc.vhd
 ├── arithmetic
 │   ├── float
 │   │   ├── matrix
@@ -241,4 +248,4 @@ code
         ├── model_input_trainer.vhd
         └── model_output_trainer.vhd
 
-61 directories, 180 files
+65 directories, 183 files
