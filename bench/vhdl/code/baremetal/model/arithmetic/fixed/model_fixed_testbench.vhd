@@ -1270,54 +1270,93 @@ begin
         assert data_out_tensor_fixed_adder = TENSOR_ADDER_OUTPUT_0(i, j, k)
           report "TENSOR ADDER: CALCULATED = " & to_string(data_out_tensor_fixed_adder) & "; CORRECT = " & to_string(TENSOR_ADDER_OUTPUT_0(i, j, k))
           severity error;
+
+        i := 0;
+        j := 0;
+        k := 0;
       elsif (data_out_i_enable_tensor_fixed_adder = '1' and data_out_j_enable_tensor_fixed_adder = '1' and data_out_k_enable_tensor_fixed_adder = '1' and not data_out_tensor_fixed_adder = ZERO_DATA) then
         assert data_out_tensor_fixed_adder = TENSOR_ADDER_OUTPUT_0(i, j, k)
           report "TENSOR ADDER: CALCULATED = " & to_string(data_out_tensor_fixed_adder) & "; CORRECT = " & to_string(TENSOR_ADDER_OUTPUT_0(i, j, k))
           severity error;
+
+        i := i + 1;
+        j := 0;
+        k := 0;
       elsif (data_out_j_enable_tensor_fixed_adder = '1' and data_out_k_enable_tensor_fixed_adder = '1' and not data_out_tensor_fixed_adder = ZERO_DATA) then
         assert data_out_tensor_fixed_adder = TENSOR_ADDER_OUTPUT_0(i, j, k)
           report "TENSOR ADDER: CALCULATED = " & to_string(data_out_tensor_fixed_adder) & "; CORRECT = " & to_string(TENSOR_ADDER_OUTPUT_0(i, j, k))
           severity error;
+
+        j := j + 1;
+        k := 0;
       elsif (data_out_k_enable_tensor_fixed_adder = '1' and not data_out_tensor_fixed_adder = ZERO_DATA) then
         assert data_out_tensor_fixed_adder = TENSOR_ADDER_OUTPUT_0(i, j, k)
           report "TENSOR ADDER: CALCULATED = " & to_string(data_out_tensor_fixed_adder) & "; CORRECT = " & to_string(TENSOR_ADDER_OUTPUT_0(i, j, k))
           severity error;
+
+        k := k + 1;
       end if;
 
       if (ready_tensor_fixed_multiplier = '1' and data_out_i_enable_tensor_fixed_multiplier = '1' and data_out_j_enable_tensor_fixed_multiplier = '1' and data_out_k_enable_tensor_fixed_multiplier = '1') then
         assert data_out_tensor_fixed_multiplier = TENSOR_MULTIPLIER_OUTPUT_0(i, j, k)
           report "TENSOR MULTIPLIER: CALCULATED = " & to_string(data_out_tensor_fixed_multiplier) & "; CORRECT = " & to_string(TENSOR_MULTIPLIER_OUTPUT_0(i, j, k))
           severity error;
+
+        i := 0;
+        j := 0;
+        k := 0;
       elsif (data_out_i_enable_tensor_fixed_multiplier = '1' and data_out_j_enable_tensor_fixed_multiplier = '1' and data_out_k_enable_tensor_fixed_multiplier = '1' and not data_out_tensor_fixed_multiplier = ZERO_DATA) then
         assert data_out_tensor_fixed_multiplier = TENSOR_MULTIPLIER_OUTPUT_0(i, j, k)
           report "TENSOR MULTIPLIER: CALCULATED = " & to_string(data_out_tensor_fixed_multiplier) & "; CORRECT = " & to_string(TENSOR_MULTIPLIER_OUTPUT_0(i, j, k))
           severity error;
+
+        i := i + 1;
+        j := 0;
+        k := 0;
       elsif (data_out_j_enable_tensor_fixed_multiplier = '1' and data_out_k_enable_tensor_fixed_multiplier = '1' and not data_out_tensor_fixed_multiplier = ZERO_DATA) then
         assert data_out_tensor_fixed_multiplier = TENSOR_MULTIPLIER_OUTPUT_0(i, j, k)
           report "TENSOR MULTIPLIER: CALCULATED = " & to_string(data_out_tensor_fixed_multiplier) & "; CORRECT = " & to_string(TENSOR_MULTIPLIER_OUTPUT_0(i, j, k))
           severity error;
+
+        j := j + 1;
+        k := 0;
       elsif (data_out_k_enable_tensor_fixed_multiplier = '1' and not data_out_tensor_fixed_multiplier = ZERO_DATA) then
         assert data_out_tensor_fixed_multiplier = TENSOR_MULTIPLIER_OUTPUT_0(i, j, k)
           report "TENSOR MULTIPLIER: CALCULATED = " & to_string(data_out_tensor_fixed_multiplier) & "; CORRECT = " & to_string(TENSOR_MULTIPLIER_OUTPUT_0(i, j, k))
           severity error;
+
+        k := k + 1;
       end if;
 
       if (ready_tensor_fixed_divider = '1' and data_out_i_enable_tensor_fixed_divider = '1' and data_out_j_enable_tensor_fixed_divider = '1' and data_out_k_enable_tensor_fixed_divider = '1') then
         assert data_out_tensor_fixed_divider = TENSOR_DIVIDER_OUTPUT_0(i, j, k)
           report "TENSOR DIVIDER: CALCULATED = " & to_string(data_out_tensor_fixed_divider) & "; CORRECT = " & to_string(TENSOR_DIVIDER_OUTPUT_0(i, j, k))
           severity error;
+
+        i := 0;
+        j := 0;
+        k := 0;
       elsif (data_out_i_enable_tensor_fixed_divider = '1' and data_out_j_enable_tensor_fixed_divider = '1' and data_out_k_enable_tensor_fixed_divider = '1' and not data_out_tensor_fixed_divider = ZERO_DATA) then
         assert data_out_tensor_fixed_divider = TENSOR_DIVIDER_OUTPUT_0(i, j, k)
           report "TENSOR DIVIDER: CALCULATED = " & to_string(data_out_tensor_fixed_divider) & "; CORRECT = " & to_string(TENSOR_DIVIDER_OUTPUT_0(i, j, k))
           severity error;
+
+        i := i + 1;
+        j := 0;
+        k := 0;
       elsif (data_out_j_enable_tensor_fixed_divider = '1' and data_out_k_enable_tensor_fixed_divider = '1' and not data_out_tensor_fixed_divider = ZERO_DATA) then
         assert data_out_tensor_fixed_divider = TENSOR_DIVIDER_OUTPUT_0(i, j, k)
           report "TENSOR DIVIDER: CALCULATED = " & to_string(data_out_tensor_fixed_divider) & "; CORRECT = " & to_string(TENSOR_DIVIDER_OUTPUT_0(i, j, k))
           severity error;
+
+        j := j + 1;
+        k := 0;
       elsif (data_out_k_enable_tensor_fixed_divider = '1' and not data_out_tensor_fixed_divider = ZERO_DATA) then
         assert data_out_tensor_fixed_divider = TENSOR_DIVIDER_OUTPUT_0(i, j, k)
           report "TENSOR DIVIDER: CALCULATED = " & to_string(data_out_tensor_fixed_divider) & "; CORRECT = " & to_string(TENSOR_DIVIDER_OUTPUT_0(i, j, k))
           severity error;
+
+        k := k + 1;
       end if;
     end if;
   end process tensor_assertion;

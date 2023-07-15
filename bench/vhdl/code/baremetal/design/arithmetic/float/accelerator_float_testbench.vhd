@@ -1680,60 +1680,102 @@ begin
   end generate accelerator_tensor_float_divider_test;
 
   tensor_assertion : process (CLK, RST)
+    variable i : integer := 0;
+    variable j : integer := 0;
+    variable k : integer := 0;
   begin
     if rising_edge(CLK) then
       if (ready_tensor_float_adder = '1' and data_out_i_enable_tensor_float_adder = '1' and data_out_j_enable_tensor_float_adder = '1' and data_out_k_enable_tensor_float_adder = '1') then
         assert data_out_tensor_float_adder = data_out_tensor_float_adder_model
           report "TENSOR ADDER: CALCULATED = " & to_string(data_out_tensor_float_adder) & "; CORRECT = " & to_string(data_out_tensor_float_adder_model)
           severity error;
+
+        i := 0;
+        j := 0;
+        k := 0;
       elsif (data_out_i_enable_tensor_float_adder = '1' and data_out_j_enable_tensor_float_adder = '1' and data_out_k_enable_tensor_float_divider = '1' and not data_out_tensor_float_adder = EMPTY) then
         assert data_out_tensor_float_adder = data_out_tensor_float_adder_model
           report "TENSOR ADDER: CALCULATED = " & to_string(data_out_tensor_float_adder) & "; CORRECT = " & to_string(data_out_tensor_float_adder_model)
           severity error;
+
+        i := i + 1;
+        j := 0;
+        k := 0;
       elsif (data_out_j_enable_tensor_float_adder = '1' and data_out_k_enable_tensor_float_divider = '1' and not data_out_tensor_float_adder = EMPTY) then
         assert data_out_tensor_float_adder = data_out_tensor_float_adder_model
           report "TENSOR ADDER: CALCULATED = " & to_string(data_out_tensor_float_adder) & "; CORRECT = " & to_string(data_out_tensor_float_adder_model)
           severity error;
+
+        j := j + 1;
+        k := 0;
       elsif (data_out_k_enable_tensor_float_divider = '1' and not data_out_tensor_float_adder = EMPTY) then
         assert data_out_tensor_float_adder = data_out_tensor_float_adder_model
           report "TENSOR ADDER: CALCULATED = " & to_string(data_out_tensor_float_adder) & "; CORRECT = " & to_string(data_out_tensor_float_adder_model)
           severity error;
+
+        k := k + 1;
       end if;
 
       if (ready_tensor_float_multiplier = '1' and data_out_i_enable_tensor_float_multiplier = '1' and data_out_j_enable_tensor_float_multiplier = '1' and data_out_k_enable_tensor_float_multiplier = '1') then
         assert data_out_tensor_float_multiplier = data_out_tensor_float_multiplier_model
           report "TENSOR MULTIPLIER: CALCULATED = " & to_string(data_out_tensor_float_multiplier) & "; CORRECT = " & to_string(data_out_tensor_float_multiplier_model)
           severity error;
+
+        i := 0;
+        j := 0;
+        k := 0;
       elsif (data_out_i_enable_tensor_float_multiplier = '1' and data_out_j_enable_tensor_float_multiplier = '1' and data_out_k_enable_tensor_float_divider = '1' and not data_out_tensor_float_multiplier = EMPTY) then
         assert data_out_tensor_float_multiplier = data_out_tensor_float_multiplier_model
           report "TENSOR MULTIPLIER: CALCULATED = " & to_string(data_out_tensor_float_multiplier) & "; CORRECT = " & to_string(data_out_tensor_float_multiplier_model)
           severity error;
+
+        i := i + 1;
+        j := 0;
+        k := 0;
       elsif (data_out_j_enable_tensor_float_multiplier = '1' and data_out_k_enable_tensor_float_divider = '1' and not data_out_tensor_float_multiplier = EMPTY) then
         assert data_out_tensor_float_multiplier = data_out_tensor_float_multiplier_model
           report "TENSOR MULTIPLIER: CALCULATED = " & to_string(data_out_tensor_float_multiplier) & "; CORRECT = " & to_string(data_out_tensor_float_multiplier_model)
           severity error;
+
+        j := j + 1;
+        k := 0;
       elsif (data_out_k_enable_tensor_float_divider = '1' and not data_out_tensor_float_multiplier = EMPTY) then
         assert data_out_tensor_float_multiplier = data_out_tensor_float_multiplier_model
           report "TENSOR MULTIPLIER: CALCULATED = " & to_string(data_out_tensor_float_multiplier) & "; CORRECT = " & to_string(data_out_tensor_float_multiplier_model)
           severity error;
+
+        k := k + 1;
       end if;
 
       if (ready_tensor_float_divider = '1' and data_out_i_enable_tensor_float_divider = '1' and data_out_j_enable_tensor_float_divider = '1' and data_out_k_enable_tensor_float_divider = '1') then
         assert data_out_tensor_float_divider = data_out_tensor_float_divider_model
           report "TENSOR DIVIDER: CALCULATED = " & to_string(data_out_tensor_float_divider) & "; CORRECT = " & to_string(data_out_tensor_float_divider_model)
           severity error;
+
+        i := 0;
+        j := 0;
+        k := 0;
       elsif (data_out_i_enable_tensor_float_divider = '1' and data_out_j_enable_tensor_float_divider = '1' and data_out_k_enable_tensor_float_divider = '1' and not data_out_tensor_float_divider = EMPTY) then
         assert data_out_tensor_float_divider = data_out_tensor_float_divider_model
           report "TENSOR DIVIDER: CALCULATED = " & to_string(data_out_tensor_float_divider) & "; CORRECT = " & to_string(data_out_tensor_float_divider_model)
           severity error;
+
+        i := i + 1;
+        j := 0;
+        k := 0;
       elsif (data_out_j_enable_tensor_float_divider = '1' and data_out_k_enable_tensor_float_divider = '1' and not data_out_tensor_float_divider = EMPTY) then
         assert data_out_tensor_float_divider = data_out_tensor_float_divider_model
           report "TENSOR DIVIDER: CALCULATED = " & to_string(data_out_tensor_float_divider) & "; CORRECT = " & to_string(data_out_tensor_float_divider_model)
           severity error;
+
+        j := j + 1;
+        k := 0;
       elsif (data_out_k_enable_tensor_float_divider = '1' and not data_out_tensor_float_divider = EMPTY) then
         assert data_out_tensor_float_divider = data_out_tensor_float_divider_model
           report "TENSOR DIVIDER: CALCULATED = " & to_string(data_out_tensor_float_divider) & "; CORRECT = " & to_string(data_out_tensor_float_divider_model)
           severity error;
+
+        k := k + 1;
       end if;
     end if;
   end process tensor_assertion;
