@@ -213,7 +213,7 @@ code
 │   │       ├── accelerator_controller.sv
 │   │       ├── accelerator_decoder.sv
 │   │       └── accelerator_encoder.sv
-│   ├── DNC
+│   ├── dnc
 │   │   ├── memory
 │   │   │   ├── accelerator_addressing.sv
 │   │   │   ├── accelerator_allocation_weighting.sv
