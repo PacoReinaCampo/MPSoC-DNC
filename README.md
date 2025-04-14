@@ -1,4 +1,4 @@
-# MPSoC-DNC (T-DNC/NTM-MPSoC)
+# MPSoC-DNC
 ## QueenField
 
 ![QueenField](../main/icon.jpg)
